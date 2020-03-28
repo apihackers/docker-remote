@@ -6,7 +6,17 @@ An SSH client meant to be run in CI services.
 
 ## Getting started
 
-TODO
+Fetch the docker image:
+
+```shell
+$ docker pull apihackers/remote
+```
+
+and then execute your remote commands:
+
+```shell
+$ docker run -rm -e SSH_USER -e SSH_HOST -e SSH_KEY -e WORKDIR apihackers/remote run-my-command with params
+```
 
 ## Environment variables
 
