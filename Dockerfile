@@ -5,7 +5,7 @@ ARG BUILD_DATE
 
 LABEL org.opencontainers.image.title="ssh" \
       org.opencontainers.image.revision=$GIT_COMMIT \
-      org.opencontainers.image.source="https://github.com/apihackers/docker-ssh" \
+      org.opencontainers.image.source="https://github.com/apihackers/docker-remote" \
       org.opencontainers.image.created=$BUILD_DATE
 
 RUN apk add --no-cache openssh-client
