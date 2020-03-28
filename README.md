@@ -8,6 +8,16 @@ An SSH client meant to be run in CI services.
 
 TODO
 
+## Environment variables
+
+**`SSH_USER`**: the user to connect with. Default to `root`
+
+**`SSH_HOST`**: the remote host to connect to
+
+**`SSH_KEY`**: the private ssh key to authenticate with
+
+**`WORKDIR`**: an optionnal directory into which command will be executed 
+
 ## Examples
 
 ### Gitlab CI

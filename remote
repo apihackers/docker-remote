@@ -7,4 +7,8 @@ echo -e "${SSH_KEY}" | tr -d '\r' > ~/.ssh/key
 chmod 600 ~/.ssh/key
 ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2> /dev/null
 
-ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} "$@"
+if [ -z "$WORKDIR" ]; then
+    ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} "$@"
+else
+    ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} "cd $WORKDIR && $@"
+fi
