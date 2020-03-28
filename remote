@@ -3,6 +3,10 @@
 SSH_USER=${SSH_USER:-root}
 
 mkdir -p ~/.ssh
+echo "RAW"
+echo -e "${SSH_KEY}"
+echo "cleaned"
+echo -e "${SSH_KEY}" | tr -d '\r'
 echo -e "${SSH_KEY}" | tr -d '\r' > ~/.ssh/key
 chmod 600 ~/.ssh/key
 ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2> /dev/null
