@@ -19,6 +19,6 @@ RUN mkdir ~/.ssh
 COPY remote /usr/local/bin/remote
 RUN chmod +x /usr/local/bin/remote
 
-RUN ln -s /usr/local/bin/remote /usr/local/bin/bash
+# RUN ln -s /usr/local/bin/remote /usr/local/bin/bash
 
 # ENTRYPOINT ["/usr/local/bin/remote"]
