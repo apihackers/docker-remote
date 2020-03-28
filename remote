@@ -3,7 +3,7 @@
 SSH_USER=${SSH_USER:-root}
 
 mkdir -p ~/.ssh
-echo -e "${SSH_KEY}" > ~/.ssh/key
+echo -e "${SSH_KEY}" | tr -d '\r' > ~/.ssh/key
 chmod 600 ~/.ssh/key
 ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2> /dev/null
 
