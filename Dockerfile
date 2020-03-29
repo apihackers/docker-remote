@@ -3,7 +3,7 @@ FROM alpine:3.11
 ARG GIT_COMMIT
 ARG BUILD_DATE
 
-LABEL org.opencontainers.image.title="ssh" \
+LABEL org.opencontainers.image.title="remote" \
       org.opencontainers.image.revision=$GIT_COMMIT \
       org.opencontainers.image.source="https://github.com/apihackers/docker-remote" \
       org.opencontainers.image.created=$BUILD_DATE \
