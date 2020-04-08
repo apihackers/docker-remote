@@ -28,6 +28,8 @@ $ docker run -rm -e SSH_USER -e SSH_HOST -e SSH_KEY -e WORKDIR apihackers/remote
 
 **`WORKDIR`**: an optionnal directory into which command will be executed 
 
+**`DEBUG`**: if set to true, print some debug infos (ie. echo commands)
+
 ## Examples
 
 ### Gitlab CI

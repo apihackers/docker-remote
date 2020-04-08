@@ -1,14 +1,25 @@
 #!/bin/sh
 
 SSH_USER=${SSH_USER:-root}
+DEBUG=${DEBUG:-false}
 
 mkdir -p ~/.ssh
 echo -e "${SSH_KEY}" | tr -d '\r' > ~/.ssh/key
 chmod 600 ~/.ssh/key
 ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2> /dev/null
 
+if [ "$DEBUG" = true ]; then
+    echo "Running command:"
+fi
+
 if [ -z "$WORKDIR" ]; then
+    if [ "$DEBUG" = true ]; then
+        echo "ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} \"$@\""
+    fi
     ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} "$@"
 else
+    if [ "$DEBUG" = true ]; then
+        echo "ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} \"cd $WORKDIR && $@\""
+    fi
     ssh -i ~/.ssh/key ${SSH_USER}@${SSH_HOST} "cd $WORKDIR && $@"
 fi
